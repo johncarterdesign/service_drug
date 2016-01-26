@@ -1,0 +1,118 @@
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{{ "/jquery/jquery.min.js" | prepend: site.baseurl }}"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{ "/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+
+<script>
+
+    function sidenav() {
+        var $sidenav    = $( ".sd-sidenav" );
+        var $menu       = $( ".sd-menu" );
+        var $toggle     = $( ".sd-toggle" );
+        var $close      = $( "#sd-sidenav-close" );
+        var $menulink   = $( ".sd-menu-link > a" );
+        var $info       = $( ".sd-sidenav-info" );
+
+        function opensidenav() {
+            $sidenav.addClass( "sd-sidenav-open" );
+            $menu.addClass( "hide" );
+        };
+
+        function closeidenav() {
+            $sidenav.removeClass( "sd-sidenav-open" );
+            $menu.removeClass( "hide" );
+            $info.each(function() {
+                $( this ).removeClass( "color" );
+            });
+        }
+
+        $toggle.click( function() {
+            opensidenav()
+        });
+
+        $menulink.click( function(event) {
+            event.preventDefault();
+
+            var $t = $( this );
+            var offset = $( $t.attr( "href" ) ).position().top;
+            console.log( offset);
+
+            $( $t.attr( "href" ) ).addClass( "color" );
+            opensidenav();
+            setTimeout( function() { $sidenav.animate({ scrollTop: offset }, 300) }, 300 );
+        });
+
+        $close.click( function() {
+            closeidenav()
+        });
+    };
+
+    function footer() {
+        var bodyheight  = $( "body" ).height();
+        var winheight   = $( window ).height();
+        var footheight  = $( "footer" ).outerHeight(true);
+
+        if ( (bodyheight-footheight) < winheight ) {
+            $( "footer" ).css( "margin-top", winheight - bodyheight + footheight + "px" );
+        }
+    };
+
+    $(function() {
+        sidenav();
+
+        $('.sd-carousel').slick({
+            arrows: true,
+            prevArrow: $( '.sd-carousel-left' ),
+            nextArrow: $( '.sd-carousel-right' ),
+            focusOnSelect: true,
+            variableWidth: true,
+            infinite: true,
+            centerMode: true,
+        });
+
+    });
+
+    $(document).ready(function(){
+
+        $('.sd-home-carousel').slick({
+            dots: true,
+            infinite: true,
+            speed: 800,
+            autoplay: true,
+            fade: true,
+            autoplaySpeed: 6000,
+            responsive: [
+                {
+                    breakpoint: 767,
+                    settings: {
+                        fade: false
+                    }
+                }
+            ]
+        });
+
+        $('.sd-about-carousel').slick({
+            dots: true,
+            infinite: true,
+            speed: 800,
+            autoplay: true,
+            autoplaySpeed: 7000,
+            fade: true,
+            arrows: false
+        });
+    });
+
+    $( window ).load(function() {
+        footer();
+        sidenav();
+    });
+
+    $( window ).resize(function() {
+        footer();
+    });
+
+
+</script>
+
+
+

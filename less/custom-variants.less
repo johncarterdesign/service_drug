@@ -1,0 +1,190 @@
+// HEADING
+
+.heading-variant(@ch,@cl) {
+    h1, h2, h3,
+    .h1, .h2, .h3 {
+        color:@ch;
+    }
+
+    h4, h5, h6,
+    .h4, .h5, .h6 {
+        color:@cl;
+    }
+
+    div, section, article {
+
+        h1, h2, h3,
+        .h1, .h2, .h3 {
+            color:@ch;
+        }
+
+        h4, h5, h6,
+        .h4, .h5, .h6 {
+            color:@cl;
+        }
+
+        div, section, article {
+
+            h1, h2, h3,
+            .h1, .h2, .h3 {
+                color:@ch;
+            }
+
+            h4, h5, h6,
+            .h4, .h5, .h6 {
+                color:@cl;
+            }
+
+            div, section, article {
+
+                h1, h2, h3,
+                .h1, .h2, .h3 {
+                    color:@ch;
+                }
+
+                h4, h5, h6,
+                .h4, .h5, .h6 {
+                    color:@cl;
+                }
+            }
+        }
+    }
+}
+
+// TEXT
+
+.text-variant(@c) {
+    color:@c;
+
+    div, article, section, ul > li, ul > li > a, p {
+        color:@c;
+
+        div, article, section, ul > li, ul > li > a, p {
+            color:@c;
+
+            div, article, section, ul > li, ul > li > a, p {
+                color:@c;
+            }
+        }
+    }
+}
+
+// LINKS
+
+.a-variant(@c) {
+    a {
+        color: @c;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: darken(@c, 15%);
+        }
+    }
+
+    div, section, article, ul > li, p {
+        a {
+            color: @c;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: darken(@c, 15%);
+            }
+        }
+
+        div, section, article, ul > li, p {
+            a {
+                color: @c;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: darken(@c, 15%);
+                }
+            }
+
+            div, section, article, ul > li, p {
+                a {
+                    color: @c;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        color: darken(@c, 15%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.a-variant-lighten(@c) {
+    a {
+        color: @c;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: lighten(@c, 15%);
+        }
+    }
+
+    div, section, article, ul > li, p {
+        a {
+            color: @c;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: lighten(@c, 15%);
+            }
+        }
+
+        div, section, article, ul > li, p {
+            a {
+                color: @c;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: lighten(@c, 15%);
+                }
+            }
+
+            div, section, article, ul > li, p {
+                a {
+                    color: @c;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        color: lighten(@c, 15%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// BORDER
+
+.border-variant(@top,@right,@bottom,@left,@width,@color) {
+    border:@width @color;
+    border-top:@top;
+    border-right:@right;
+    border-bottom:@bottom;
+    border-left:@left;
+}
+
+// DIVS
+
+.div-variant(@bg,@hh,@hl,@t,@a) {
+    background-color:@bg;
+
+    .heading-variant(@hh,@hl);
+
+    .text-variant(@t);
+    
+    .a-variant(@a);
+}

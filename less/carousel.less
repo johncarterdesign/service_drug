@@ -1,0 +1,113 @@
+//
+// Carousel
+// --------------------------------------------------
+
+.carousel, .carousel-inner, .item {
+    height: 400px;
+    width: 100%;
+}
+
+// Wrapper for the slide container and indicators
+.carousel {
+    position: relative;
+    margin-top: 50px;
+}
+
+.carousel-inner {
+    position: relative;
+    margin-bottom:20px;
+
+    .item {
+        display: block;
+        position: absolute;
+        z-index:0;
+        left: 0;
+        top: 0;
+        .opacity(0);
+        .transition(opacity 1s);
+
+        &.active {
+            opacity: 1;
+            z-index:1;
+        }
+
+        // Account for jankitude on images
+        > img,
+        > a > img {
+            position:absolute;
+            width:100%;
+            top:0;
+            bottom:0;
+            margin:auto;
+        }
+    }
+}
+
+// Left/right controls for nav
+// ---------------------------
+
+.carousel-control {
+    .opacity(@carousel-control-opacity);
+    color: @carousel-control-color;
+
+    // Hover/focus state
+    &:hover,
+    &:focus {
+        outline: 0;
+        color: @carousel-control-hover-color;
+        text-decoration: none;
+    }
+
+    .glyphicon {
+        top: 2px;
+    }
+}
+
+// Optional indicator pips
+//
+// Add an unordered list with the following class and add a list item for each
+// slide your carousel holds.
+
+.carousel-indicators {
+    list-style: none;
+    margin-bottom: 0;
+
+    li {
+        display: inline-block;
+        width:  10px;
+        height: 10px;
+        margin: 1px;
+        text-indent: -999px;
+        border: 1px solid @carousel-indicator-border-color;
+        border-radius: 10px;
+        cursor: pointer;
+        .opacity(.5);
+
+        // IE8-9 hack for event handling
+        //
+        // Internet Explorer 8-9 does not support clicks on elements without a set
+        // `background-color`. We cannot use `filter` since that's not viewed as a
+        // background color by the browser. Thus, a hack is needed.
+        // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Internet_Explorer
+        //
+        // For IE8, we set solid black as it doesn't support `rgba()`. For IE9, we
+        // set alpha transparency for the best results possible.
+        background-color: #000 \9; // IE8
+        background-color: rgba(0,0,0,0); // IE9
+
+        &:hover {
+            border-color: @carousel-indicator-hover-color;
+        }
+    }
+    .active {
+        margin: 0;
+        width:  12px;
+        height: 12px;
+        background-color: @carousel-indicator-active-bg;
+
+        &:hover {
+            border-color: @carousel-indicator-hover-color;
+            background-color: @carousel-indicator-hover-color;
+        }
+    }
+}

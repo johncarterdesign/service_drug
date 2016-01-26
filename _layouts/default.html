@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <main>
+      
+      {% if page.url != "/" %}
+      
+      <div class="container">
+      
+        <div class="row">
+        
+          <div class="col-xs-12 page-header">
+          
+            <h1>{{ page.title }}</h1>
+          
+          </div>
+        
+        </div>
+      
+      </div>
+      
+      {% endif %}
+    
+      {{ content }}
+    
+    </main>
+    
+    {% include footer.html %}
+    
+    {% include js.html %}
+
+  </body>
+
+</html>
