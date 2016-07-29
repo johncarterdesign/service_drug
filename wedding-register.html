@@ -1,0 +1,77 @@
+---
+layout: default
+title: Wedding Registry
+permalink: /wedding-register
+---
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-9">
+
+            <p>Simply fill out the form and your names and photo will appear on the online registry list, where your friends and family will be able to Gift your account. You can come into the store at any time and use your registry funds much like a gift card. You can also <a href="wedding-couples-login.php">log in here</a> to view your account details.</p>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-9 col-sm-8 col-md-6 col-lg-4">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    <h2 class="panel-title">Registry form</h2>
+                </div>
+
+                <div class="panel-body">
+
+                    <form action="wedding-success.php" method="post" enctype="multipart/form-data"> 
+
+                        <div class="form-group">
+                            <label for="name1">Spouse 1 Name</label>
+                            <p class="warning" id="name1-warning"></p>
+                            <input type="text" name="name1" class="form-control" id="name1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name2">Spouse 2 Name</label>
+                            <p class="warning" id="name2-warning"></p>
+                            <input type="text" name="name2" class="form-control" id="name2" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="weddingdate">Wedding Date</label>
+                            <p class="warning" id="date-warning"></p>
+                            <input type="date" name="weddingdate" class="form-control" id="weddingdate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <p class="warning" id="email-warning"></p>
+                            <input type="text" name="email" class="form-control" id="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password1">Password</label>
+                            <p class="warning" id="password1-warning"></p>
+                            <input type="password" name="password1" class="form-control" id="password1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password2">Confirm password</label>
+                            <p class="warning" id="password2-warning"></p>
+                            <input type="password" name="password2" class="form-control" id="password2" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fileToUpload">Select image to upload</label>
+                            <input type="file" name="image" id="fileToUpload">
+                        </div>
+
+                        <input class="btn btn-primary" type="submit" value="Submit" name="submit" id="submit" style="margin-top: 15px">
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

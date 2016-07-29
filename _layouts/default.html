@@ -1,3 +1,32 @@
+{% if page.url contains "wedding-couples-account" %}{% raw %}<?php 
+
+session_start(); 
+
+if (!isset($_SESSION['wedding-couples-session-set'])) { 
+
+session_destroy();
+
+header('Location: wedding-couples-login.php'); 
+
+} 
+
+?>
+
+{% endraw %}{% endif %}{% if page.url == "/admin/" %}{% raw %}<?php 
+
+session_start();
+
+if (!isset($_SESSION['admin-session-set'])) {
+
+session_destroy();
+
+header('Location: login.php'); 
+
+} 
+
+?>
+
+{% endraw %}{% endif %}
 <!DOCTYPE html>
 <html>
 
@@ -8,31 +37,31 @@
     {% include header.html %}
 
     <main>
-      
+
       {% if page.url != "/" %}
-      
+
       <div class="container">
-      
+
         <div class="row">
-        
+
           <div class="col-xs-12 page-header">
-          
+
             <h1>{{ page.title }}</h1>
-          
+
           </div>
-        
+
         </div>
-      
+
       </div>
-      
+
       {% endif %}
-    
+
       {{ content }}
-    
+
     </main>
-    
+
     {% include footer.html %}
-    
+
     {% include js.html %}
 
   </body>
