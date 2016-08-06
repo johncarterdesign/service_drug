@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Service Drug Admin - Create User
+title: Admin - Create User
 permalink: /admin/create-user
 ---
 

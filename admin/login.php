@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Service Drug Admin - Login
+title: Admin - Login
 permalink: /admin/login
 ---
 

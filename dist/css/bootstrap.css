@@ -7221,6 +7221,13 @@ footer {
   background-repeat: no-repeat;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff7f7f7', GradientType=0);
 }
+.admin-panel {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.admin-panel:not(:last-child) {
+  border-bottom: solid 1px #eee;
+}
 .text-white {
   color: #fff;
 }
