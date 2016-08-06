@@ -74,7 +74,7 @@ permalink: /admin/
                                 echo "<div class='row'>";
                                 while($rowWeddinggifts = $resultWeddinggifts->fetch_assoc()) {
 
-                                    echo "<div class='col-xs-4 col-md-3 col-lg-2'>";
+                                    echo "<div class='col-xs-5 col-md-3 col-lg-2'>";
 
                                     echo "<h5>" . $rowWeddinggifts["name"] . "</h5>";
                                     
