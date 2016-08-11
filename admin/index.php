@@ -4,7 +4,7 @@ title: Admin
 permalink: /admin/
 ---
 
-<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="trashModalLabel" id="trashModal">
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="trashModalLabel" id="adminWeddingTrashModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

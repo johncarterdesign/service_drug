@@ -6,10 +6,23 @@ permalink: /wedding-couples
 
 <div class="container">
     <div class="row">
+        <div class="col-xs-12">
+            {% raw %}
+            <?php if ($_GET["deleteSuccess"]) {
+    echo "<p class='lead text-success'>Account successfully deleted.</p>";
+
+} else if ($_GET["deleteFailure"]) {
+    echo "<p class='lead text-danger'>Sorry, there was a problem with your connection. please try again later</p>";
+}
+            ?>
+            {% endraw %}
+        </div>
+    </div>
+    <div class="row">
         <div class="col-xs-12" style="margin-bottom: 20px">
-            
+
             <p>Click the Send Gift button below to give to a couple's registry. Simply fill out the form and we will bill you! <a href='wedding-couples-login.php'>Click here to log in and view your registry.</a></p>
-        
+
         </div>
     </div>
     <div class="row">
@@ -41,21 +54,21 @@ permalink: /wedding-couples
                 while($row = $result->fetch_assoc()) {
                     echo "
                     <div class='media'>
-                    
+
                     <div class='media-left'>
-                    
+
                     <img class='media-object' src='uploads/" . $row["image"] . "' alt='' width='300'>
-                    
+
                     </div>
-                    
+
                     <div class='media-body'>
-                    
+
                     <h4 class='h3 media-heading'>" . $row["name1"] . " and " . $row["name2"] . "</h4>
-                    
+
                     <p class='lead' style='margin-bottom:15px'>" . date('F j, Y',strtotime($row["weddingdate"])) . "</p>
-                    
+
                     <a class='btn btn-primary btn-sm' href='wedding-couples-gift.php?id=" . $row["id"] . "'>Send Gift</a>
-                    
+
                     </div>
                     </div>";
                 }
