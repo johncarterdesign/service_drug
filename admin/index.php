@@ -4,7 +4,48 @@ title: Admin
 permalink: /admin/
 ---
 
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="trashModalLabel" id="trashModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="lead text-warning modal-title">Are you sure you want to delete this registry account?</div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-8">
+
+                        <h4 class="modal-names" id="gridSystemModalLabel">Modal title</h4>
+                        <img class="img-responsive modal-img" src="">
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <form action="">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <a type="button" class="btn btn-danger btn-delete" href="">Delete account</a>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <div class="container">
+
+    <div class="row">
+        <div class="col-xs-12">
+            {% raw %}
+            <?php if ($_GET["deleteSuccess"]) {
+    echo "<p class='lead text-success'>Account successfully deleted.</p>";
+
+} else if ($_GET["deleteFailure"]) {
+    echo "<p class='lead text-danger'>Sorry, there was a problem with your connection. please try again later</p>";
+}
+            ?>
+            {% endraw %}
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-xs-12">
@@ -66,7 +107,7 @@ permalink: /admin/
 
                             echo "<div class='col-xs-12 col-sm-6 col-md-9'>";
 
-                            echo "<h3>" . $rowWeddingcouples["name1"] . " and " . $rowWeddingcouples["name2"] . "</h3>";
+                            echo "<h3>" . $rowWeddingcouples["name1"] . " and " . $rowWeddingcouples["name2"] . " <span class='glyphicon glyphicon-trash sd-trash' aria-hidden='true' data-id='" . $rowWeddingcouples["id"] . "'  data-toggle='modal' data-target='#trashModal' data-names='" . $rowWeddingcouples["name1"] . " and " . $rowWeddingcouples["name2"] . "' data-img='" . $rowWeddingcouples["image"] . "'></span></h3>";
                             echo "<p class='lead'>" . $rowWeddingcouples["weddingdate"] . "</p>";
                             $resultWeddinggifts = $connWedding->query(sqlWeddinggifts($rowWeddingcouples["id"]));
                             if ($resultWeddinggifts->num_rows > 0) {
@@ -77,17 +118,17 @@ permalink: /admin/
                                     echo "<div class='col-xs-5 col-md-3 col-lg-2'>";
 
                                     echo "<h5>" . $rowWeddinggifts["name"] . "</h5>";
-                                    
+
                                     echo "<p><span class='lead text-success'>$" . $rowWeddinggifts["amount"] . "</span><br>";
-                                    
+
                                     echo $rowWeddinggifts["date"] . "</p>";
-                                    
+
                                     echo "<address>";
                                     echo "<p>" . $rowWeddinggifts["phone"] . "</p>";
                                     echo "</address>";
-                                    
+
                                     echo "<p><a href='mailto:" . $rowWeddinggifts["email"] . "'>" . $rowWeddinggifts["email"] . "</a></p>";
-                                    
+
                                     echo "<address>";
                                     echo "<p>" . $rowWeddinggifts["address1"] . "<br>";
                                     if ($rowWeddinggifts["address2"]) { echo $rowWeddinggifts["address2"] . "<br>"; }

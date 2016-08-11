@@ -111,6 +111,17 @@
         footer();
     });
 
+    $('#trashModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+        var names = button.data('names')
+        var img = button.data('img')
+        
+        var modal = $(this)
+        modal.find('.modal-names').text(names)
+        modal.find('.modal-img').attr('src', 'http://servicedrug.net/uploads/' + img)
+        modal.find('.btn-delete').attr('href', 'delete-wedding.php?id=' + id)
+    })
 
 </script>
 

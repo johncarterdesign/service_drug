@@ -7228,6 +7228,14 @@ footer {
 .admin-panel:not(:last-child) {
   border-bottom: solid 1px #eee;
 }
+.sd-trash {
+  font-size: 17px;
+  color: #ddd;
+}
+.sd-trash:hover {
+  color: #333;
+  cursor: pointer;
+}
 .text-white {
   color: #fff;
 }
