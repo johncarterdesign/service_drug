@@ -12,17 +12,43 @@ header('Location: wedding-couples-login.php');
 
 ?>
 
-{% endraw %}{% endif %}{% if page.url == "/admin/" %}{% raw %}<?php 
+{% endraw %}{% endif %}{% if page.url contains "admin" %}{% raw %}<?php 
 
 session_start();
 
-if (!isset($_SESSION['admin-session-set'])) {
+if (isset($_SESSION['admin-session-set'])) {
+
+$servername = "68.178.143.9";
+$username = "servicedrugadmin";
+$password = "Sd%4dm1n";
+$dbname = "servicedrugadmin";
+$tablename = "users";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+echo "<p class='text-danger'>Sorry, there was a problem with your connection. Please try again later.</p>";
+return false;
+}
+
+$sql = "SELECT * 
+FROM  `" . $tablename . "` 
+WHERE email =  '" . $_SESSION['email'] . "'
+LIMIT 0 , 30";
+$result = $conn->query($sql);
+
+if ($result->num_rows == 0) {
+header('Location: login.php');
+}
+
+} else {
 
 session_destroy();
 
 header('Location: login.php'); 
 
-} 
+}
 
 ?>
 
